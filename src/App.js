@@ -29,7 +29,7 @@ function App() {
               <h3 align="right">Content</h3>
               <BasicGrid></BasicGrid>
           </div>
-          
+
       </header>
     </div>
   );
@@ -66,23 +66,18 @@ const bull = (
     </Box>
 );
 
-function BasicCard() {
+function BasicCard(props) {
     return (
         <Card sx={{ minWidth: 275 }}>
             <CardContent>
-                <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-                    Word of the Day
-                </Typography>
                 <Typography variant="h5" component="div">
-                    be{bull}nev{bull}o{bull}lent
+                    {props.title}
                 </Typography>
                 <Typography sx={{ mb: 1.5 }} color="text.secondary">
-                    adjective
+                    {props.theme}
                 </Typography>
                 <Typography variant="body2">
-                    well meaning and kindly.
-                    <br />
-                    {'"a benevolent smile"'}
+                    {props.description}
                 </Typography>
             </CardContent>
             <CardActions>
@@ -105,13 +100,13 @@ function BasicGrid() {
         <Box sx={{ flexGrow: 1 }}>
             <Grid container spacing={2}>
                 <Grid item xs={4}>
-                    <Item><BasicCard></BasicCard></Item>
+                    <Item><BasicCard title="Card1" theme="1" description="Мне лень писать столько  :("></BasicCard></Item>
                 </Grid>
                 <Grid item xs={4}>
-                    <Item><BasicCard></BasicCard></Item>
+                    <Item><BasicCard title="CardTEst" theme="2" description="Мне лень писать столько текста.."></BasicCard></Item>
                 </Grid>
                 <Grid item xs={4}>
-                    <Item><BasicCard></BasicCard></Item>
+                    <Item><BasicCard title="CardULULU" theme="078..." description="Мне лень писать столько текста.... Да"></BasicCard></Item>
                 </Grid>
             </Grid>
         </Box>
