@@ -15,6 +15,9 @@ import { styled } from '@mui/material/styles';
 import Paper from '@mui/material/Paper';
 import Grid from '@mui/material/Grid';
 
+import TextField from '@mui/material/TextField';
+import {useState} from "react";
+
 function App() {
   return (
     <div className="App">
@@ -30,6 +33,15 @@ function App() {
               <BasicGrid></BasicGrid>
           </div>
 
+          <form action="">
+              <FullWidthTextField></FullWidthTextField>
+              <br/>
+              <FullWidthTextField></FullWidthTextField>
+              <br/>
+              <FullWidthTextField></FullWidthTextField>
+              <br/>
+              <button type="submit">Submit</button>
+          </form>
       </header>
     </div>
   );
@@ -109,6 +121,21 @@ function BasicGrid() {
                     <Item><BasicCard title="CardULULU" theme="078..." description="Мне лень писать столько текста.... Да"></BasicCard></Item>
                 </Grid>
             </Grid>
+        </Box>
+    );
+}
+
+function FullWidthTextField() {
+    const [input, setInput] = useState('');
+    console.log(input)
+    return (
+        <Box
+            sx={{
+                width: 500,
+                maxWidth: '100%',
+            }}
+        >
+            <input value={input} onInput={e => setInput(e.target.value)}/>
         </Box>
     );
 }
