@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useTodosStore } from './TodosContext'
+import localStorage from 'mobx-localstorage';
 
 const AddTodo = () => {
 	const [ todoBody, setTodoBody ] = useState('');
@@ -7,6 +8,8 @@ const AddTodo = () => {
 
 	const handleAddTodo = () => {
 		todosStore.addTodo(todoBody);
+		localStorage.setItem("lab", todoBody);
+		delayedAlert()
 		setTodoBody('');
 	};
 
@@ -19,3 +22,12 @@ const AddTodo = () => {
 }
 
 export default AddTodo
+
+function delayedAlert() {
+	setTimeout(slowAlert, 2000);
+}
+
+function slowAlert() {
+	let key = "lab";
+	alert("Todo was saved: key:" + key + ", value: " + localStorage.getItem(key));
+}
